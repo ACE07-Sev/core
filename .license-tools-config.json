@@ -35,8 +35,6 @@
     "uv\\.lock",
     "py\\.typed",
     ".*build.*",
-    "core_patterns.txt",
-    "mlir/include/mlir/Dialect/Jeff/.*",
-    "mlir/lib/Dialect/Jeff/.*"
+    "core_patterns.txt"
   ]
 }
