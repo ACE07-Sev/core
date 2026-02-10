@@ -28,3 +28,5 @@ INSTANTIATE_TEST_SUITE_P(
                     QCTestCase{"InverseMultipleControlledIdentity",
                                inverseMultipleControlledIdentity, identity}),
     printTestName);
+
+/// TODO: Would it make sense to eliminate the identity gate already in QC?

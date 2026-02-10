@@ -21,3 +21,6 @@ INSTANTIATE_TEST_SUITE_P(
         QCTestCase{"TripleNestedCtrl", tripleNestedCtrl, tripleControlledRxx},
         QCTestCase{"CtrlInvSandwich", ctrlInvSandwich, multipleControlledRxx}),
     printTestName);
+
+/// TODO: Add a test that has nested controls where each of the control
+///   modifiers has at least two qubits.
