@@ -1142,13 +1142,13 @@ inline void trivialControlledEcr(mlir::qc::QCProgramBuilder& b) {
 /// Creates a circuit with an inverse modifier applied to an ECR gate.
 inline void inverseEcr(mlir::qc::QCProgramBuilder& b) {
   auto q = b.allocQubitRegister(2);
-  b.inv([&]() { b.ecr(q[1], q[0]); });
+  b.inv([&]() { b.ecr(q[0], q[1]); });
 }
 
 /// Creates a circuit with an inverse modifier applied to a controlled ECR gate.
 inline void inverseMultipleControlledEcr(mlir::qc::QCProgramBuilder& b) {
   auto q = b.allocQubitRegister(4);
-  b.inv([&]() { b.mcecr({q[0], q[1]}, q[3], q[2]); });
+  b.inv([&]() { b.mcecr({q[0], q[1]}, q[2], q[3]); });
 }
 
 // --- RXXOp ---------------------------------------------------------------- //
