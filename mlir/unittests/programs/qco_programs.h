@@ -15,6 +15,7 @@
 #include <llvm/ADT/STLExtras.h>
 #include <numbers>
 
+namespace mlir::qco {
 // --- Qubit Management ----------------------------------------------------- //
 
 /// Allocates a single qubit.
@@ -2013,3 +2014,4 @@ inline void invCtrlSandwich(mlir::qco::QCOProgramBuilder& b) {
     return llvm::to_vector(llvm::concat<mlir::Value>(controlsOut, targetsOut));
   });
 }
+} // namespace mlir::qco

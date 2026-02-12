@@ -14,6 +14,7 @@
 
 #include <numbers>
 
+namespace mlir::qc {
 // --- Qubit Management ----------------------------------------------------- //
 
 /// Allocates a single qubit.
@@ -1506,3 +1507,4 @@ inline void invCtrlSandwich(mlir::qc::QCProgramBuilder& b) {
     b.ctrl(q[0], [&]() { b.inv([&]() { b.rxx(0.123, q[1], q[2]); }); });
   });
 }
+} // namespace mlir::qc
