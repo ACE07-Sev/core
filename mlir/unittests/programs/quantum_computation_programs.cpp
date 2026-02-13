@@ -53,11 +53,11 @@ void repeatedMeasurementToDifferentBits(QuantumComputation& comp) {
 
 void multipleClassicalRegistersAndMeasurements(QuantumComputation& comp) {
   comp.addQubitRegister(3, "q");
-  comp.addClassicalRegister(1, "c0");
-  comp.addClassicalRegister(2, "c1");
-  comp.measure(0, 0);
-  comp.measure(1, 0);
-  comp.measure(2, 1);
+  const auto& c0 = comp.addClassicalRegister(1, "c0");
+  const auto& c1 = comp.addClassicalRegister(2, "c1");
+  comp.measure(0, c0[0]);
+  comp.measure(1, c1[0]);
+  comp.measure(2, c1[1]);
 }
 
 void resetQubitAfterSingleOp(QuantumComputation& comp) {
