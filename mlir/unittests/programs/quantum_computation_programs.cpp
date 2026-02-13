@@ -60,24 +60,6 @@ void multipleClassicalRegistersAndMeasurements(QuantumComputation& comp) {
   comp.measure(2, 1);
 }
 
-void resetQubitWithoutOp(QuantumComputation& comp) {
-  comp.addQubitRegister(1, "q");
-  comp.reset(0);
-}
-
-void resetMultipleQubitsWithoutOp(QuantumComputation& comp) {
-  comp.addQubitRegister(2, "q");
-  comp.reset(0);
-  comp.reset(1);
-}
-
-void repeatedResetWithoutOp(QuantumComputation& comp) {
-  comp.addQubitRegister(1, "q");
-  comp.reset(0);
-  comp.reset(0);
-  comp.reset(0);
-}
-
 void resetQubitAfterSingleOp(QuantumComputation& comp) {
   comp.addQubitRegister(1, "q");
   comp.h(0);
