@@ -33,6 +33,7 @@
 #include <mlir/IR/SymbolTable.h>
 #include <mlir/IR/Value.h>
 #include <mlir/Interfaces/SideEffectInterfaces.h>
+#include <tuple>
 #include <unordered_map>
 
 namespace {

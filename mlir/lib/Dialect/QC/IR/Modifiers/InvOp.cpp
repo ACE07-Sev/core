@@ -11,6 +11,7 @@
 #include "mlir/Dialect/QC/IR/QCDialect.h"
 
 #include <cstddef>
+#include <llvm/ADT/STLFunctionalExtras.h>
 #include <llvm/ADT/TypeSwitch.h>
 #include <llvm/Support/Casting.h>
 #include <llvm/Support/ErrorHandling.h>

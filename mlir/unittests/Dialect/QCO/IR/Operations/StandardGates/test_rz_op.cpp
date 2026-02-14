@@ -8,6 +8,7 @@
  * Licensed under the MIT License
  */
 
+#include "TestCaseUtils.h"
 #include "dd/GateMatrixDefinitions.hpp"
 #include "ir/operations/OpType.hpp"
 #include "qco_programs.h"

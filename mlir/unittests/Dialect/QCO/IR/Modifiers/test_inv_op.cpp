@@ -8,6 +8,7 @@
  * Licensed under the MIT License
  */
 
+#include "TestCaseUtils.h"
 #include "dd/Operations.hpp"
 #include "ir/operations/OpType.hpp"
 #include "ir/operations/StandardOperation.hpp"
