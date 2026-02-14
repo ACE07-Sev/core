@@ -15,7 +15,6 @@
 
 #include <Eigen/Core>
 #include <gtest/gtest.h>
-#include <mlir/Dialect/Func/IR/FuncOps.h>
 
 using namespace mlir::qco;
 
@@ -42,13 +41,8 @@ INSTANTIATE_TEST_SUITE_P(
                     MQT_NAMED_BUILDER(inverseMultipleControlledEcr)}));
 
 TEST_F(QCOTest, ECROpMatrix) {
-  auto moduleOp = QCOProgramBuilder::build(context.get(), ecr);
-  ASSERT_TRUE(moduleOp);
-
-  // Get the operation from the module
-  auto funcOp = *moduleOp->getBody()->getOps<mlir::func::FuncOp>().begin();
-  auto ecrOp = *funcOp.getBody().getOps<ECROp>().begin();
-  const auto matrix = ecrOp.getUnitaryMatrix();
+  // Get the (static) matrix from the operation
+  const auto matrix = ECROp::getUnitaryMatrix();
 
   // Get the definition of the matrix from the DD library
   const auto definition = dd::opToTwoQubitGateMatrix(qc::OpType::ECR);

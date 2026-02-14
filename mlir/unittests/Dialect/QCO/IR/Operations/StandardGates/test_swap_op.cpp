@@ -15,7 +15,6 @@
 
 #include <Eigen/Core>
 #include <gtest/gtest.h>
-#include <mlir/Dialect/Func/IR/FuncOps.h>
 
 using namespace mlir::qco;
 
@@ -42,13 +41,8 @@ INSTANTIATE_TEST_SUITE_P(
                     MQT_NAMED_BUILDER(multipleControlledSwap)}));
 
 TEST_F(QCOTest, SWAPOpMatrix) {
-  auto moduleOp = QCOProgramBuilder::build(context.get(), swap);
-  ASSERT_TRUE(moduleOp);
-
-  // Get the operation from the module
-  auto funcOp = *moduleOp->getBody()->getOps<mlir::func::FuncOp>().begin();
-  auto swapOp = *funcOp.getBody().getOps<SWAPOp>().begin();
-  const auto matrix = swapOp.getUnitaryMatrix();
+  // Get the (static) matrix from the operation
+  const auto matrix = SWAPOp::getUnitaryMatrix();
 
   // Get the definition of the matrix from the DD library
   const auto definition = dd::opToTwoQubitGateMatrix(qc::OpType::SWAP);

@@ -15,7 +15,6 @@
 
 #include <Eigen/Core>
 #include <gtest/gtest.h>
-#include <mlir/Dialect/Func/IR/FuncOps.h>
 
 using namespace mlir::qco;
 
@@ -42,13 +41,8 @@ INSTANTIATE_TEST_SUITE_P(
                                 MQT_NAMED_BUILDER(multipleControlledS)}));
 
 TEST_F(QCOTest, SdgOpMatrix) {
-  auto moduleOp = QCOProgramBuilder::build(context.get(), sdg);
-  ASSERT_TRUE(moduleOp);
-
-  // Get the operation from the module
-  auto funcOp = *moduleOp->getBody()->getOps<mlir::func::FuncOp>().begin();
-  auto sdgOp = *funcOp.getBody().getOps<SdgOp>().begin();
-  const auto matrix = sdgOp.getUnitaryMatrix();
+  // Get the (static) matrix from the operation
+  const auto matrix = SdgOp::getUnitaryMatrix();
 
   // Get the definition of the matrix from the DD library
   const auto definition = dd::opToSingleQubitGateMatrix(qc::OpType::Sdg);
