@@ -16,10 +16,6 @@
 
 using namespace mlir::qco;
 
-// TODO: QC has NestedControlledGlobalPhase and TrivialControlledGlobalPhase
-// programs without QCO equivalents, so QCO->QC conversion doesn't cover them
-// yet.
-
 INSTANTIATE_TEST_SUITE_P(QCOGPhaseOpTest, QCOToQCTest,
                          testing::Values(QCOToQCTestCase{
                              "GlobalPhase", qco::globalPhase, qc::globalPhase}),
