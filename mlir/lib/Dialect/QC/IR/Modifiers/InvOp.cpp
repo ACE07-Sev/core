@@ -244,7 +244,7 @@ struct CancelNestedInv final : OpRewritePattern<InvOp> {
       return failure();
     }
 
-    auto innerInnerUnitary = innerInvOp.getBodyUnitary().getOperation();
+    auto* innerInnerUnitary = innerInvOp.getBodyUnitary().getOperation();
     rewriter.moveOpBefore(innerInnerUnitary, invOp);
     rewriter.replaceOp(invOp, innerInnerUnitary->getResults());
 
