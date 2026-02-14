@@ -11,6 +11,7 @@
 #include "qco_programs.h"
 #include "test_qco_ir.h"
 
+#include <Eigen/Core>
 #include <complex>
 #include <gtest/gtest.h>
 #include <mlir/Dialect/Func/IR/FuncOps.h>
